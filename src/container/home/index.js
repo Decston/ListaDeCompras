@@ -1,70 +1,13 @@
 import React from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faShoppingBasket, faCheck } from '@fortawesome/free-solid-svg-icons';
 
+import NewList from './NewList';
+import List from './List';
 import './Home.css';
-import CustomCard from '../../common/CustomCard';
 
-const Home = (props) => (
+const Home = () => (
     <div className="home-container">
-        <CustomCard containerClass="new-list-container" >
-            <div>
-                <p className="title">Adicionar Novas Listas!</p>
-            </div>
-        </CustomCard>
-
-        <CustomCard 
-            containerClass="list-container" 
-            footer={
-                <div className="list-footer">
-                    <p>06/10/2020</p>
-                    <p>100.00</p>
-                </div>
-            }
-        >
-            <div>
-                <p className="title">Mês</p>
-                <div className="list-card-body">
-                    <div className="list-card-item">
-                        <FontAwesomeIcon icon={faShoppingBasket} size="sm" />
-                        <p>1 item(s) Restantes</p>
-                    </div>
-                    <div className="list-card-item">
-                        <FontAwesomeIcon icon={faCheck} size="sm" />
-                        <p>2 item(s) Comprados</p>
-                    </div>
-                </div>
-            </div>
-        </CustomCard>
-
-        {/*
-        <div className="list-container">
-            <Card className="card">
-                <CardActionArea className="card-action-area">
-                    <CardContent className="card-content">
-                        <div>
-                            <p className="title">Mês</p>
-                            <div className="list-card-body">
-                                <div className="list-card-item">
-                                    <FontAwesomeIcon icon={faShoppingBasket} size="sm" />
-                                    <p>1 item(s) Restantes</p>
-                                </div>
-                                <div className="list-card-item">
-                                    <FontAwesomeIcon icon={faCheck} size="sm" />
-                                    <p>2 item(s) Comprados</p>
-                                </div>
-                            </div>
-                        </div>
-                    </CardContent> 
-                </CardActionArea>
-                <Divider />
-                <CardActions className="card-footer">
-                    <p>06/10/2020</p>
-                    <p>100.00</p>
-                </CardActions>
-            </Card>
-        </div> 
-        */}   
+        <NewList />
+        <List />
     </div>
 )
 
