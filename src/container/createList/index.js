@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './List.css'
+import './List.css';
 import Form from './Form';
 import ListItem from './ListItem';
 
