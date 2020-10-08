@@ -23,3 +23,7 @@
     font-weight: bolder;
     color: #757575;
 }
+
+.card-img {
+    object-fit: cover;
+}
