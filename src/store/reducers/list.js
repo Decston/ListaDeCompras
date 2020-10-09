@@ -24,3 +24,7 @@ export default function list(state = INITIAL_STATE, action) {
 function getItemTotal(product) {
     return product.price * product.quantity
 }
+
+export function getListTotal(state) {
+    return state.list.items.reduce((total, item) => total + item.total, 0);
+}
