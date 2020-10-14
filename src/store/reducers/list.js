@@ -24,10 +24,24 @@ export default function list(state = INITIAL_STATE, action) {
             return {
                 ...state,
                 items: toggleItem(state.items, action.productId)
+            };
+        case Types.UPDATE_PRODUCT:
+            return {
+                list: action.list,
+                items: updateProduct(state.items, action.product)
             }
         default:
             return state;
     }
+}
+
+function updateProduct(items, product) {
+    const index = items.findIndex(item => item.id === product.id);
+    return [
+        ...items.slice(0, index),
+        { ...product, total: getItemTotal(product) },
+        ...items.slice(index + 1)
+    ];
 }
 
 function toggleItem(items, productId) {
