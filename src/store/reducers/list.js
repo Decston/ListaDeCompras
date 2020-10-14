@@ -1,3 +1,4 @@
+import { getDefaultNormalizer } from '@testing-library/react';
 import { Types } from '../actions/list';
 
 const INITIAL_STATE = {
@@ -7,8 +8,13 @@ const INITIAL_STATE = {
 
 export default function list(state = INITIAL_STATE, action) {
     switch(action.type) {
+        case Types.NEW_LIST:
+            return {
+                ...INITIAL_STATE, date: getDate()
+            };
         case Types.ADD_PRODUCT:
             return { 
+                ...state,
                 list: action.list,
                 items: [
                     ...state.items,
@@ -27,6 +33,7 @@ export default function list(state = INITIAL_STATE, action) {
             };
         case Types.UPDATE_PRODUCT:
             return {
+                ...state,
                 list: action.list,
                 items: updateProduct(state.items, action.product)
             }
@@ -55,6 +62,12 @@ function toggleItem(items, productId) {
 
 function getItemTotal(product) {
     return product.price * product.quantity
+}
+
+function getDate() {
+    const date = new Date();
+    const options = {year: 'numeric', month: '2-digit', day: '2-digit'};
+    return date.toLocaleString('pt-BR', options);
 }
 
 export function getOpenedItems(state) {
